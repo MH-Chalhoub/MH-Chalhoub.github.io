@@ -145,6 +145,30 @@ h6 {
     overflow-y: auto;
 }
 
+.languages {
+    margin-top: 20px;
+}
+
+.btn-outline-primary {
+    border-color: #dc9adf;
+    color: #dc9adf;
+}
+
+.btn-outline-primary:hover {
+    background-color: #6e07ce;
+    border-color: #8e36c9;
+}
+
+.cv_container {
+    display: flex;
+}
+
+#cv_btn {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+}
+
 @media (max-width: 992px) {
     #header {
         width: 300px;
@@ -336,6 +360,11 @@ h6 {
 
 #hero p span {
     color: #a102fd;
+    letter-spacing: 1px;
+}
+
+#hero #hero_me {
+    color: #ffffff;
     letter-spacing: 1px;
 }
 
@@ -589,7 +618,7 @@ section {
 
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 
 .skills .progress {
