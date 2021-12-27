@@ -160,7 +160,7 @@ h6 {
 }
 
 .cv_container {
-    display: flex;
+    display: inline;
 }
 
 #cv_btn {
@@ -179,8 +179,8 @@ h6 {
 }
 
 @media (min-width: 992px) {
-    #main {
-        /* margin-left: 100px; */
+    .cv_container {
+        display: flex;
     }
 }
 
