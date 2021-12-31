@@ -144,7 +144,7 @@
         let typed_strings = typed.getAttribute('data-typed-items')
         typed_strings = typed_strings.split(',')
         if (window.location.hash == "#fr") {
-            let typed_strings = typed.getAttribute('data-typed-items-fr')
+            typed_strings = typed.getAttribute('data-typed-items-fr')
             typed_strings = typed_strings.split(',')
         }
         new Typed('.typed', {
@@ -215,6 +215,15 @@
      */
     const portfolioDetailsLightbox = GLightbox({
         selector: '.portfolio-details-lightbox',
+        width: '90%',
+        height: '90vh'
+    });
+
+    /**
+     * Initiate portfolio details lightbox for the cv
+     */
+    const portfolioDetailsLightbox1 = GLightbox({
+        selector: '.portfolio-details-lightbox-1',
         width: '90%',
         height: '90vh'
     });

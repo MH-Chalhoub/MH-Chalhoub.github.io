@@ -5,7 +5,7 @@ function changeLanguage(lang) {
 // Define the language reload anchors
 var about = {
     eng: {
-        me: "I'm ",
+        me: "I'm a",
         about_1: "ABOUT",
         about_2: "A motivated and ambitious student pursuing a Master Degree in Computer Science at the Lebanese University. Most users see a computer at the front and use the graphical user interfaces. The first time I used a computer, it intrigued me to know how these interfaces work, the theory behind computers and the methodology of how they work...",
         about_3: "Programmer & Freelancer",
@@ -24,7 +24,7 @@ var about = {
         about_freelance_1: "Available"
     },
     fr: {
-        me: "Je suis ",
+        me: "Je suis un ",
         about_1: "À PROPOS",
         about_2: "Un étudiant motivé et ambitieux poursuivant un Master en Informatique à l'Université Libanaise. La plupart des utilisateurs voient un ordinateur à l'avant et utilisent les interfaces utilisateur graphiques. La première fois que j'ai utilisé un ordinateur, cela m'a intrigué de savoir comment fonctionnent ces interfaces, la théorie derrière les ordinateurs et la méthodologie de leur fonctionnement...",
         about_3: "Programmeur & Freelancer",
