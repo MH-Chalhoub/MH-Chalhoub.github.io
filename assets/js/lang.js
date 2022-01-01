@@ -158,7 +158,8 @@ if (window.location.hash) {
     // depending on the hash value
     if (window.location.hash == "#fr") {
         hero_me.textContent = about.fr.me;
-        cv_link.href = "https://drive.google.com/file/d/1lw7MucNENCctaitnVfclXHVxviIxVONN/view?usp=sharing";
+        cv_link.href = "CV/cv-details.html";
+        test.textContent = about.fr.about_1;
 
         //About Section
         about_header.textContent = about.fr.about_1;
