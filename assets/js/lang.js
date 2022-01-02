@@ -159,7 +159,9 @@ if (window.location.hash) {
     if (window.location.hash == "#fr") {
         hero_me.textContent = about.fr.me;
         cv_link.href = "CV/cv-details.html";
-        test.textContent = about.fr.about_1;
+        document.getElementById("english_btn").classList.remove('active');
+
+        document.getElementById("french_btn").classList.add('active');
 
         //About Section
         about_header.textContent = about.fr.about_1;

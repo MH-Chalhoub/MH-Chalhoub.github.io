@@ -57,7 +57,7 @@
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
             <div class="cv_container">
                 <h1>Mohamad CHALHOUB&nbsp;</h1>
-                <a href="CV/cv-details.html" class="portfolio-details-lightbox-1" data-glightbox="type: external" id="cv_link" title="CV Details"><button class="btn btn-outline-primary" id="cv_btn"><i class="bi bi-file-earmark-person-fill"></i> CV</button></a>
+
             </div>
             <p><span id="hero_me">I'm a </span><span class="typed" data-typed-items="Developer, Freelancer, Programmer" data-typed-items-fr="Developeur, Freelancer, Programmeur"></span></p>
             <div class="social-links">
@@ -69,8 +69,24 @@
             </div>
 
             <div class="languages" data-aos="zoom-in" data-aos-delay="100">
-                <button class="btn btn-outline-primary" onclick="changeLanguage('eng')" id="english_btn">Change to English</button>
-                <button class="btn btn-outline-primary" onclick="changeLanguage('fr')" id="french_btn">Changer en français</button>
+                <a href="CV/cv-details.html" class="portfolio-details-lightbox-1" data-glightbox="type: external" id="cv_link" title="CV Details"><button class="btn btn-primary" id="cv_btn"><i class="bi bi-file-earmark-person-fill"></i> View My CV</button></a>
+                <div class="btn-group dropend">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="Choose_lang" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-translate"></i> Language
+                  </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" onclick="changeLanguage('eng')" id="english_btn">English</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" onclick="changeLanguage('fr')" id="french_btn">Français</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item disabled" onclick="changeLanguage('ar')" id="arabic_btn">العربية</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
