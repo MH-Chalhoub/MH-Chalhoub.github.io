@@ -1,7 +1,3 @@
-function changeLanguage(lang) {
-    location.hash = lang;
-    location.reload();
-}
 // Define the language reload anchors
 var about = {
     eng: {
@@ -158,9 +154,8 @@ if (window.location.hash) {
     // depending on the hash value
     if (window.location.hash == "#fr") {
         hero_me.textContent = about.fr.me;
-        cv_link.href = "CV/cv-details.html";
-        document.getElementById("english_btn").classList.remove('active');
 
+        document.getElementById("english_btn").classList.remove('active');
         document.getElementById("french_btn").classList.add('active');
 
         //About Section
@@ -234,4 +229,9 @@ if (window.location.hash) {
         portfolio_9.textContent = portfolio.fr.portfolio_9;
 
     }
+}
+
+function changeLanguage(lang) {
+    location.hash = lang;
+    location.reload();
 }

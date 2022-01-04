@@ -157,6 +157,16 @@
     }
 
     /**
+     * Hero Cv button
+     * It doesn't work in the lang.js file because the Glightbox save the link somehow and if i put it here
+     * which is before initiating the portfolioDetailsLightbox1 it work but if you put it after it will not
+     */
+
+    if (window.location.hash == "#fr") {
+        document.getElementById("cv_link").href = "CV/cv-details-fr.html";
+    }
+
+    /**
      * Skills animation
      */
     let skilsContent = select('.skills-content');
