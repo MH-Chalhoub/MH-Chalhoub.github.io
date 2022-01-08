@@ -214,6 +214,37 @@
     });
 
     /**
+     * Services isotope and filter
+     */
+    window.addEventListener('load', () => {
+        let portfolioContainer = select('.portfolio-container');
+        if (portfolioContainer) {
+            let portfolioIsotope = new Isotope(portfolioContainer, {
+                itemSelector: '.portfolio-item'
+            });
+
+            let portfolioFilters = select('#portfolio-flters li', true);
+
+            on('click', '#services-flters div', function(e) {
+                e.preventDefault();
+                if (this.getAttribute("type") == "software")
+                    select('#portfolio_4', false).click();
+                else if (this.getAttribute("type") == "web")
+                    select('#portfolio_8', false).click();
+                else if (this.getAttribute("type") == "compiler")
+                    select('#portfolio_9', false).click();
+                else if (this.getAttribute("type") == "app")
+                    select('#portfolio_6', false).click();
+                else if (this.getAttribute("type") == "network")
+                    select('#portfolio_7', false).click();
+                else if (this.getAttribute("type") == "ai")
+                    select('#portfolio_5', false).click();
+            }, true);
+        }
+
+    });
+
+    /**
      * Initiate portfolio lightbox 
      */
     const portfolioLightbox = GLightbox({
