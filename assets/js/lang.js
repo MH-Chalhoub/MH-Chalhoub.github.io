@@ -54,7 +54,7 @@ var skill = {
 var resume = {
     eng: {
         resume_1: "Resume",
-        resume_2: "My experience is limited to the projects I presented during my studies and the freelance project that I did.",
+        resume_2: "My experience corresponds to the projects that I presented during my studies and to the freelance project that I carried out. Such as:",
         resume_3: "Sumarry",
         resume_4: "Innovative and deadline-driven Java Developer , Fresh-graduate computer science student.",
         resume_5: "Beirut, LB",
@@ -88,7 +88,7 @@ var resume = {
     },
     fr: {
         resume_1: "Resume",
-        resume_2: "Mon expérience se limite aux projets que j'ai présentés durant mes études et au projet en freelance que j'ai réalisé.",
+        resume_2: "Mon expérience correspond aux projets que j'ai présentés durant mes études et au projet en freelance que j'ai réalisé. Tel que:",
         resume_3: "Résumé",
         resume_4: "Développeur Java innovant et deadline-driven, étudiant diplômé en informatique.",
         resume_5: "Beyrouth, LB",
