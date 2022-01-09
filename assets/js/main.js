@@ -169,6 +169,7 @@
         document.getElementById("portfolio_othello_link").href = "projects/othello/othello-details-fr.html";
         document.getElementById("portfolio_sic_link").href = "projects/sic/sic-details-fr.html";
         document.getElementById("portfolio_verger_link").href = "projects/verger/verger-details-fr.html";
+        document.getElementById("portfolio_sch_link").href = "projects/sch/sch-details-fr.html";
     }
 
     /**
