@@ -157,13 +157,18 @@
     }
 
     /**
-     * Hero Cv button
+     * Hero Cv button and projects links
      * It doesn't work in the lang.js file because the Glightbox save the link somehow and if i put it here
      * which is before initiating the portfolioDetailsLightbox1 it work but if you put it after it will not
      */
 
     if (window.location.hash == "#fr") {
         document.getElementById("cv_link").href = "CV/cv-details-fr.html";
+
+        document.getElementById("portfolio_tcsmp_link").href = "projects/tcsmp/tcsmp-details-fr.html";
+        document.getElementById("portfolio_othello_link").href = "projects/othello/othello-details-fr.html";
+        document.getElementById("portfolio_sic_link").href = "projects/sic/sic-details-fr.html";
+        document.getElementById("portfolio_verger_link").href = "projects/verger/verger-details-fr.html";
     }
 
     /**

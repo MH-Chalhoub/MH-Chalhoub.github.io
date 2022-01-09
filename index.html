@@ -39,12 +39,12 @@
 
         <nav id="navbar" class="navbar nav-menu">
             <ul>
-                <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-                <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-                <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-                <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-                <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+                <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span id="navbar_home">Home</span></a></li>
+                <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span id="navbar_about">About</span></a></li>
+                <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span id="navbar_resume">Resume</span></a></li>
+                <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span id="navbar_portfolio">Portfolio</span></a></li>
+                <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span id="navbar_srervices">Services</span></a></li>
+                <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span id="navbar_contact">Contact</span></a></li>
             </ul>
         </nav>
         <!-- .nav-menu -->
@@ -325,13 +325,11 @@
                         <div class="portfolio-wrap">
                             <img src="projects/tcsmp/tcsmp-img/inOutTcsmp.png" class="img-fluid" alt="" width="100%" height="100%">
                             <div class="portfolio-info">
-                                <a href="projects/tcsmp/tcsmp-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details">
-                                    <h4 id="portfolio_10">Tcsmp</h4>
-                                    <p id="portfolio_11">Communication Protocol</p>
-                                </a>
+                                <h4 id="portfolio_10">Tcsmp</h4>
+                                <p id="portfolio_11">Communication Protocol</p>
                                 <div class="portfolio-links">
                                     <a href="projects/tcsmp/tcsmp-img/inOutTcsmp.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="The goal is to think about the operation principles of such a mechanism and about the necessary protocols for its implementation. Defining a RFC for this TCSMP Protocol"><i class="bx bx-plus"></i></a>
-                                    <a href="projects/tcsmp/tcsmp-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                                    <a href="projects/tcsmp/tcsmp-details.html" id="portfolio_tcsmp_link" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -341,11 +339,11 @@
                         <div class="portfolio-wrap">
                             <img src="projects/othello/othello-img/othelloLogo.jpg" class="img-fluid" alt="" width="100%" height="100%">
                             <div class="portfolio-info">
-                                <h4>Othello</h4>
-                                <p>AI Game</p>
+                                <h4 id="portfolio_12">Othello</h4>
+                                <p id="portfolio_13">AI Game</p>
                                 <div class="portfolio-links">
                                     <a href="projects/othello/othello-img/othelloLogo.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Reversi (a.k.a Othello) is a strategy board game for two players, played on an 8×8 uncheckered board. It was invented in 1883. Othello, a variant with a change to the board's initial setup, was patented in 1971."><i class="bx bx-plus"></i></a>
-                                    <a href="projects/othello/othello-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                                    <a href="projects/othello/othello-details.html" id="portfolio_othello_link" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -355,11 +353,11 @@
                         <div class="portfolio-wrap">
                             <img src="projects/sic/sic-img/sic.png" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>SIC</h4>
-                                <p>E-commerce App</p>
+                                <h4 id="portfolio_14">SIC</h4>
+                                <p id="portfolio_15">E-commerce App</p>
                                 <div class="portfolio-links">
                                     <a href="projects/sic/sic-img/sic.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="This app is a android based sharing platform for non critical reusable medical devices."><i class="bx bx-plus"></i></a>
-                                    <a href="projects/sic/sic-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                                    <a href="projects/sic/sic-details.html" id="portfolio_sic_link" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -369,11 +367,11 @@
                         <div class="portfolio-wrap">
                             <img src="projects/verger/verger-img/logo.jfif" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>Verger</h4>
-                                <p>Accounting Software</p>
+                                <h4 id="portfolio_16">Verger</h4>
+                                <p id="portfolio_17">Accounting Software</p>
                                 <div class="portfolio-links">
                                     <a href="projects/verger/verger-img/logo.jfif" data-gallery="portfolioGallery" class="portfolio-lightbox" title="This program serves to solve the difficulties encountered by the owner of the orchard at the level of memorizing all the payments, the receipts, the employees and their payments and the invoices of the market and this program is more efficient and more precise than the traditional way."><i class="bx bx-plus"></i></a>
-                                    <a href="projects/verger/verger-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                                    <a href="projects/verger/verger-details.html" id="portfolio_verger_link" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -390,8 +388,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Services</h2>
-                    <p>Here I state the services that I provide as a freelancer, based on the knowledge that is acquired in the past 6 years during<br> my studies and my work as a freelancer.</p>
+                    <h2 id="services_1">Services</h2>
+                    <p id="services_2">Here I state the services that I provide as a freelancer, based on the knowledge that is acquired in the past 6 years during<br> my studies and my work as a freelancer.</p>
                 </div>
                 <div class="row" id="services-flters">
 
@@ -404,8 +402,8 @@
                                     </svg>
                                     <i class="bx bx-terminal"></i>
                                 </div>
-                                <h4>Software development</h4>
-                                <p>Conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.</p>
+                                <h4 id="services_3">Software development</h4>
+                                <p id="services_4">Conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.</p>
                             </div>
                         </a>
                     </div>
@@ -419,8 +417,8 @@
                                 </svg>
                                     <i class="bi bi-globe2"></i>
                                 </div>
-                                <h4>Web development</h4>
-                                <p>Full stack web development. Website and web application designing, building and maintaining front-end and back-end</p>
+                                <h4 id="services_5">Web development</h4>
+                                <p id="services_6">Full stack web development. Website and web application designing, building and maintaining front-end and back-end</p>
                             </div>
                         </a>
                     </div>
@@ -434,8 +432,8 @@
                                 </svg>
                                     <i class="bi bi-cpu"></i>
                                 </div>
-                                <h4>Compiler development</h4>
-                                <p>Creating compiler that implement any language using flex/lex and bison/yacc (an LR top-bottom parser, LALR to be precise) tools, making translators or interpreters</p>
+                                <h4 id="services_7">Compiler development</h4>
+                                <p id="services_8">Creating compiler that implement any language using flex/lex and bison/yacc (an LR top-bottom parser, LALR to be precise) tools, making translators or interpreters</p>
                             </div>
                         </a>
                     </div>
@@ -449,8 +447,8 @@
                                 </svg>
                                     <i class="bi bi-phone"></i>
                                 </div>
-                                <h4>Mobile App development</h4>
-                                <p>Android App development (java), building and maintaining front-end (UI/UX design) and back-end</p>
+                                <h4 id="services_9">Mobile App development</h4>
+                                <p id="services_10">Android App development (java), building and maintaining front-end (UI/UX design) and back-end</p>
                             </div>
                         </a>
                     </div>
@@ -464,8 +462,8 @@
                                 </svg>
                                     <i class="bi bi-wifi"></i>
                                 </div>
-                                <h4>Network Administration</h4>
-                                <p>Maintaining small computer networks and solving simple problems that may occur with them.</p>
+                                <h4 id="services_11">Network Administration</h4>
+                                <p id="services_12">Maintaining small computer networks and solving simple problems that may occur with them.</p>
                             </div>
                         </a>
                     </div>
@@ -479,8 +477,8 @@
                                 </svg>
                                     <i class="bi bi-robot"></i>
                                 </div>
-                                <h4>AI and Big data analytics</h4>
-                                <p>Intrigued by the AI and how it is changing every aspect of our lives, and data science is our means of taming unstructured information and gathering insight (Search algorithms, NN, Data analysis and Data mining).</p>
+                                <h4 id="services_13">AI and Big data analytics</h4>
+                                <p id="services_14">Intrigued by AI and how it is changing every aspect of our lives, and data science is our means of taming unstructured information and gathering insight (Search algorithms, NN, Data analysis, and Data mining).</p>
                             </div>
                         </a>
                     </div>
@@ -496,7 +494,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Facts</h2>
+                    <h2 id="facts_1">Facts</h2>
                     <p></p>
                 </div>
 
@@ -506,7 +504,7 @@
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
                             <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Happy Clients</p>
+                            <p id="facts_2">Happy Clients</p>
                         </div>
                     </div>
 
@@ -514,7 +512,7 @@
                         <div class="count-box">
                             <i class="bi bi-journal-richtext"></i>
                             <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Projects</p>
+                            <p id="facts_3">Projects</p>
                         </div>
                     </div>
 
@@ -522,7 +520,7 @@
                         <div class="count-box">
                             <i class="bi bi-headset"></i>
                             <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Hours Of Support</p>
+                            <p id="facts_4">Hours Of Support</p>
                         </div>
                     </div>
 
@@ -530,7 +528,7 @@
                         <div class="count-box">
                             <i class="bi bi-award"></i>
                             <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Awards</p>
+                            <p id="facts_5">Awards</p>
                         </div>
                     </div>
 
@@ -545,7 +543,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Testimonials</h2>
+                    <h2 id="testimonials_1">Testimonials</h2>
                 </div>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -554,11 +552,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <img src="assets/img/testimonials/unknown_boy.png" class="testimonial-img" alt="">
-                                <h3>Yousef M.</h3>
-                                <h4>freelance Customer</h4>
+                                <h3 id="testimonials_2">Yousef M.</h3>
+                                <h4 id="testimonials_3">freelance Customer</h4>
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Mr. Mohammad understood the job very quicky, he replies on time and respectfully. The dilevered work was submitted was on time with high quality. He knows his field,
-                                    i recommend him.
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <p id="testimonials_4">Mr. Mohammad understood the job very quicky, he replies on time and respectfully. The dilevered work was submitted was on time with high quality. He knows his field, i recommend him.</p>
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -568,11 +566,11 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <img src="assets/img/testimonials/unknown_girl.png" class="testimonial-img" alt="">
-                                <h3>########</h3>
-                                <h4>########</h4>
+                                <h3 id="testimonials_5">########</h3>
+                                <h4 id="testimonials_6">########</h4>
                                 <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    <p id="testimonials_7">Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p>
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -593,8 +591,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Contact</h2>
-                    <p>Currently this section doesn't work.</p>
+                    <h2 id="contact_1">Contact</h2>
+                    <p id="contact_2">Currently, this section doesn't work.</p>
                 </div>
 
                 <div class="row mt-1">
@@ -603,20 +601,20 @@
                         <div class="info">
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
-                                <p>Main Road, Tyr, 65011111</p>
+                                <h4 id="contact_3">Location:</h4>
+                                <p id="contact_4">Main Road, Tyr, 65011111</p>
                             </div>
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>Mohamad.Chalhoub@st.ul.edu.lb</p>
+                                <h4 id="contact_5">Email:</h4>
+                                <p id="contact_6">Mohamad.Chalhoub@st.ul.edu.lb</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
-                                <p>+961 76 322 606</p>
+                                <h4 id="contact_7">Call:</h4>
+                                <p id="contact_8">+961 76 322 606</p>
                             </div>
 
                         </div>
@@ -638,14 +636,14 @@
                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                             </div>
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
                             </div>
                             <div class="my-3">
-                                <div class="loading">Loading</div>
+                                <div class="loading" id="contact_9">Loading</div>
                                 <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <div class="sent-message" id="contact_10">Your message has been sent. Thank you!</div>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button type="submit" id="contact_11">Send Message</button></div>
                         </form>
 
                     </div>
@@ -663,7 +661,7 @@
     <footer id="footer">
         <div class="container">
             <h3>Mohamad Chalhoub</h3>
-            <p><b>Programming isn't about what you know; it's about what you can figure out</b> - Chris Pine</p>
+            <p><b id="footer_1">Programming isn't about what you know; it's about what you can figure out</b> - Chris Pine</p>
             <div class="social-links">
                 <a href="https://twitter.com/MohamadChalhou4?s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="https://www.facebook.com/mohamad.chalhoub.52" class="facebook"><i class="bx bxl-facebook"></i></a>

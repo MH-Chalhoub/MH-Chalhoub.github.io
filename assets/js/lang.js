@@ -1,4 +1,18 @@
 // Define the language reload anchors
+
+var hero = {
+    eng: {
+        me: "I'm a",
+        cv_btn: " View My CV",
+        Choose_lang: " Language",
+    },
+    fr: {
+        me: "Je suis un ",
+        cv_btn: " Voir mon CV",
+        Choose_lang: " Langue",
+    },
+};
+
 var about = {
     eng: {
         me: "I'm a",
@@ -133,6 +147,14 @@ var portfolio = {
         portfolio_7: "Network",
         portfolio_8: "Web",
         portfolio_9: "Compiler",
+        portfolio_10: "Tcsmp",
+        portfolio_11: "Communication Protocol",
+        portfolio_12: "Othello",
+        portfolio_13: "AI Game",
+        portfolio_14: "SIC",
+        portfolio_15: "E-commerce App",
+        portfolio_16: "Orchard",
+        portfolio_17: "Accounting Software",
     },
     fr: {
         portfolio_1: "Portfolio",
@@ -144,19 +166,173 @@ var portfolio = {
         portfolio_7: "Réseau",
         portfolio_8: "Web",
         portfolio_9: "Compilateur",
+        portfolio_10: "Tcsmp",
+        portfolio_11: "Protocole de communication",
+        portfolio_12: "Othello",
+        portfolio_13: "Jeu d'IA",
+        portfolio_14: "SIC",
+        portfolio_15: "Application E-commerce",
+        portfolio_16: "Verger",
+        portfolio_17: "Logiciel de comptabilité",
     },
 };
 
+var services = {
+    eng: {
+        services_1: "Services",
+        services_2: "Here I state the services that I provide as a freelancer, based on the knowledge that is acquired in the past 6 years during<br> my studies and my work as a freelancer.",
+        services_3: "Software development",
+        services_4: "Conceiving, specifying, designing, programming, documenting, testing, and bug fixing involved in creating and maintaining applications, frameworks, or other software components.",
+        services_5: "Web development",
+        services_6: "Full stack web development. Website and web application designing, building and maintaining front-end and back-end",
+        services_7: "Compiler development",
+        services_8: "Creating compilers that implement any language using flex/lex and bison/yacc (an LR top-bottom parser, LALR to be precise) tools, making translators or interpreters",
+        services_9: "Mobile App development",
+        services_10: "Android App development (java), building and maintaining front-end (UI/UX design) and back-end",
+        services_11: "Network Administration",
+        services_12: "Maintaining small computer networks and solving simple problems that may occur with them.",
+        services_13: "AI and Big data analytics",
+        services_14: "Intrigued by AI and how it is changing every aspect of our lives, and data science is our means of taming unstructured information and gathering insight (Search algorithms, NN, Data analysis, and Data mining).",
+    },
+    fr: {
+        services_1: "Services",
+        services_2: "J'énonce ici les services que je propose en tant qu'indépendant, sur la base des connaissances acquises au cours des 6 dernières années<br> au cours de mes études et de mon travail en tant qu'indépendant.",
+        services_3: "Développement de logiciels",
+        services_4: "Concevoir, spécifier, designing, programmer, documenter, tester et corriger les bogues impliqués dans la création et la maintenance d'applications, de frameworks ou d'autres composants logiciels.",
+        services_5: "Développement web",
+        services_6: "Développement web full stack. Conception, création et maintenance de sites Web et d'applications Web",
+        services_7: "Développement du compilateur",
+        services_8: "Créer des compilateurs qui implémentent n'importe quel langage à l'aide des outils flex/lex et bison/yacc (un analyseur LR de haut en bas, LALR pour être précis), créant des traducteurs ou des interprètes",
+        services_9: "Développement d'applications mobiles",
+        services_10: "Développement d'applications Android (java), création et maintenance du front-end (conception UI/UX) et du back-end",
+        services_11: "Administration réseau",
+        services_12: "Maintenir de petits réseaux informatiques et résoudre les problèmes simples qui peuvent survenir avec eux.",
+        services_13: "IA et analyse des mégadonnées (Big data)",
+        services_14: "Intrigués par l'IA et par la façon dont elle change tous les aspects de notre vie, la science des données est notre moyen d'apprivoiser les informations non structurées et de collecter des informations (algorithmes de recherche, NN, analyse de données et exploration de données).",
+    },
+};
+
+var facts = {
+    eng: {
+        facts_1: "Facts",
+        facts_2: "Happy Clients",
+        facts_3: "Projects",
+        facts_4: "Hours Of Support",
+        facts_5: "Awards",
+    },
+    fr: {
+        facts_1: "Faits",
+        facts_2: "Clients heureux",
+        facts_3: "Projets",
+        facts_4: "Heures d'assistance",
+        facts_5: "Prix",
+    },
+};
+
+var testimonials = {
+    eng: {
+        testimonials_1: "TESTIMONIALS",
+        testimonials_2: "Yousef M.",
+        testimonials_3: "freelance Customer",
+        testimonials_4: "Mr. Mohammad understood the job very quicky, he replies on time and respectfully. The dilevered work was submitted was on time with high quality. He knows his field, i recommend him.",
+        testimonials_5: "########",
+        testimonials_6: "########",
+        testimonials_7: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
+    },
+    fr: {
+        testimonials_1: "TÉMOIGNAGES",
+        testimonials_2: "Yousef M.",
+        testimonials_3: "freelance Customer",
+        testimonials_4: "Mr. Mohammad understood the job very quicky, he replies on time and respectfully. The dilevered work was submitted was on time with high quality. He knows his field, i recommend him.",
+        testimonials_5: "########",
+        testimonials_6: "########",
+        testimonials_7: "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.",
+    },
+};
+
+var contact = {
+    eng: {
+        contact_1: "Contact",
+        contact_2: "Currently, this section doesn't work.",
+        contact_3: "Location:",
+        contact_4: "Main Road, Tyr, 65011111",
+        contact_5: "Email:",
+        contact_6: "Mohamad.Chalhoub@st.ul.edu.lb",
+        contact_7: "Call:",
+        contact_8: "+961 76 322 606",
+        contact_9: "Loading",
+        contact_10: "Your message has been sent. Thank you!",
+        contact_11: "Send Message",
+
+    },
+    fr: {
+        contact_1: "Contact",
+        contact_2: "Actuellement, cette section ne fonctionne pas.",
+        contact_3: "Emplacement:",
+        contact_4: "Route principale, Tyr, 65011111",
+        contact_5: "Email:",
+        contact_6: "Mohamad.Chalhoub@st.ul.edu.lb",
+        contact_7: "Call:",
+        contact_8: "+961 76 322 606",
+        contact_9: "Chargement",
+        contact_10: "Votre message a été envoyé. Merci!",
+        contact_11: "Envoyer le message",
+    },
+};
+
+var footer = {
+    eng: {
+        footer_1: "Programming isn't about what you know; it's about what you can figure out",
+
+    },
+    fr: {
+        footer_1: "La programmation ne concerne pas ce que vous savez ; il s'agit de ce que vous pouvez comprendre",
+    },
+};
+
+var navbar = {
+    eng: {
+        navbar_1: "Home",
+        navbar_2: "About",
+        navbar_3: "Resume",
+        navbar_4: "Portfolio",
+        navbar_5: "Services",
+        navbar_6: "Contact",
+
+    },
+    fr: {
+        navbar_1: "Accueil",
+        navbar_2: "À PROPOS",
+        navbar_3: "Résumé",
+        navbar_4: "Portfolio",
+        navbar_5: "Services",
+        navbar_6: "Contact",
+    },
+};
 // Check if a hash value exists in the URL
 if (window.location.hash) {
 
     // Set the content of the webpage 
     // depending on the hash value
     if (window.location.hash == "#fr") {
-        hero_me.textContent = about.fr.me;
+        hero_me.textContent = hero.fr.me;
 
         document.getElementById("english_btn").classList.remove('active');
         document.getElementById("french_btn").classList.add('active');
+
+        var cv_tag = document.createElement("i");
+        cv_tag.classList.add("bi", "bi-file-earmark-person-fill");
+        var textnode = document.createTextNode(hero.fr.cv_btn);
+        cv_btn.textContent = "";
+        cv_btn.appendChild(cv_tag);
+        cv_btn.appendChild(textnode);
+
+        var lang_tag = document.createElement("i");
+        lang_tag.classList.add("bi", "bi-translate");
+        var textnode = document.createTextNode(hero.fr.Choose_lang);
+        Choose_lang.textContent = "";
+        Choose_lang.appendChild(lang_tag);
+        Choose_lang.appendChild(textnode);
 
         //About Section
         about_header.textContent = about.fr.about_1;
@@ -227,7 +403,74 @@ if (window.location.hash) {
         portfolio_7.textContent = portfolio.fr.portfolio_7;
         portfolio_8.textContent = portfolio.fr.portfolio_8;
         portfolio_9.textContent = portfolio.fr.portfolio_9;
+        portfolio_10.textContent = portfolio.fr.portfolio_10;
+        portfolio_11.textContent = portfolio.fr.portfolio_11;
+        portfolio_12.textContent = portfolio.fr.portfolio_12;
+        portfolio_13.textContent = portfolio.fr.portfolio_13;
+        portfolio_14.textContent = portfolio.fr.portfolio_14;
+        portfolio_15.textContent = portfolio.fr.portfolio_15;
+        portfolio_16.textContent = portfolio.fr.portfolio_16;
+        portfolio_17.textContent = portfolio.fr.portfolio_17;
 
+        //Services Section
+        services_1.textContent = services.fr.services_1;
+        services_2.textContent = services.fr.services_2;
+        services_3.textContent = services.fr.services_3;
+        services_4.textContent = services.fr.services_4;
+        services_5.textContent = services.fr.services_5;
+        services_6.textContent = services.fr.services_6;
+        services_7.textContent = services.fr.services_7;
+        services_8.textContent = services.fr.services_8;
+        services_9.textContent = services.fr.services_9;
+        services_10.textContent = services.fr.services_10;
+        services_11.textContent = services.fr.services_11;
+        services_12.textContent = services.fr.services_12;
+        services_13.textContent = services.fr.services_13;
+        services_14.textContent = services.fr.services_14;
+
+        //Facts Section
+        facts_1.textContent = facts.fr.facts_1;
+        facts_2.textContent = facts.fr.facts_2;
+        facts_3.textContent = facts.fr.facts_3;
+        facts_4.textContent = facts.fr.facts_4;
+        facts_5.textContent = facts.fr.facts_5;
+
+        //Testimonials Section
+        testimonials_1.textContent = testimonials.fr.testimonials_1;
+        testimonials_2.textContent = testimonials.fr.testimonials_2;
+        testimonials_3.textContent = testimonials.fr.testimonials_3;
+        testimonials_4.textContent = testimonials.fr.testimonials_4;
+        testimonials_5.textContent = testimonials.fr.testimonials_5;
+        testimonials_6.textContent = testimonials.fr.testimonials_6;
+        testimonials_7.textContent = testimonials.fr.testimonials_7;
+
+        //Contact Section
+        contact_1.textContent = contact.fr.contact_1;
+        contact_2.textContent = contact.fr.contact_2;
+        contact_3.textContent = contact.fr.contact_3;
+        contact_4.textContent = contact.fr.contact_4;
+        contact_5.textContent = contact.fr.contact_5;
+        contact_6.textContent = contact.fr.contact_6;
+        contact_7.textContent = contact.fr.contact_7;
+        contact_8.textContent = contact.fr.contact_8;
+        contact_9.textContent = contact.fr.contact_9;
+        contact_10.textContent = contact.fr.contact_10;
+        contact_11.textContent = contact.fr.contact_11;
+        document.getElementById("name").placeholder = "Votre Nom";
+        document.getElementById("email").placeholder = "Votre Email";
+        document.getElementById("subject").placeholder = "Sujet";
+        document.getElementById("message").placeholder = "Message";
+
+        //Footer Section
+        footer_1.textContent = footer.fr.footer_1;
+
+        //Footer Section
+        navbar_home.textContent = navbar.fr.navbar_1;
+        navbar_about.textContent = navbar.fr.navbar_2;
+        navbar_resume.textContent = navbar.fr.navbar_3;
+        navbar_portfolio.textContent = navbar.fr.navbar_4;
+        navbar_srervices.textContent = navbar.fr.navbar_5;
+        navbar_contact.textContent = navbar.fr.navbar_6;
     }
 }
 
