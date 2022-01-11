@@ -159,6 +159,8 @@ var portfolio = {
         portfolio_19: "E-Health App",
         portfolio_20: "CTVB",
         portfolio_21: "Compiler / Translator",
+        portfolio_22: "Transport",
+        portfolio_23: "Website",
     },
     fr: {
         portfolio_1: "Portfolio",
@@ -182,6 +184,8 @@ var portfolio = {
         portfolio_19: "Application E-Santé",
         portfolio_20: "CTVB",
         portfolio_21: "Compilateur / Traducteur",
+        portfolio_22: "Transport",
+        portfolio_23: "Site Internet",
     },
 };
 
@@ -423,6 +427,8 @@ if (window.location.hash) {
         portfolio_19.textContent = portfolio.fr.portfolio_19;
         portfolio_20.textContent = portfolio.fr.portfolio_20;
         portfolio_21.textContent = portfolio.fr.portfolio_21;
+        portfolio_22.textContent = portfolio.fr.portfolio_22;
+        portfolio_23.textContent = portfolio.fr.portfolio_23;
 
         //Services Section
         services_1.textContent = services.fr.services_1;

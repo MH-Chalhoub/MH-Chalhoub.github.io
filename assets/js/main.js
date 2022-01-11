@@ -171,6 +171,7 @@
         document.getElementById("portfolio_verger_link").href = "projects/verger/verger-details-fr.html";
         document.getElementById("portfolio_sch_link").href = "projects/sch/sch-details-fr.html";
         document.getElementById("portfolio_ctvb_link").href = "projects/ctvb/ctvb-details-fr.html";
+        document.getElementById("portfolio_transport_link").href = "projects/transport/transport-details-fr.html";
     }
 
     /**
