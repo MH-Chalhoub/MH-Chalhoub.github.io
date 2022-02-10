@@ -203,7 +203,7 @@ var services = {
         services_10: "Android App development (java), building and maintaining front-end (UI/UX design) and back-end",
         services_11: "Network Administration",
         services_12: "Maintaining small computer networks and solving simple problems that may occur with them.",
-        services_13: "AI and Big data analytics",
+        services_13: "AI and data analytics",
         services_14: "Intrigued by AI and how it is changing every aspect of our lives, and data science is our means of taming unstructured information and gathering insight (Search algorithms, NN, Data analysis, and Data mining).",
     },
     fr: {
@@ -219,7 +219,7 @@ var services = {
         services_10: "Développement d'applications Android (java), création et maintenance du front-end (conception UI/UX) et du back-end",
         services_11: "Administration réseau",
         services_12: "Maintenir de petits réseaux informatiques et résoudre les problèmes simples qui peuvent survenir avec eux.",
-        services_13: "IA et analyse des mégadonnées (Big data)",
+        services_13: "IA et analyse des données (Big data)",
         services_14: "Intrigués par l'IA et par la façon dont elle change tous les aspects de notre vie, la science des données est notre moyen d'apprivoiser les informations non structurées et de collecter des informations (algorithmes de recherche, NN, analyse de données et exploration de données).",
     },
 };
