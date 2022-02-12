@@ -166,12 +166,19 @@
         document.getElementById("cv_link").href = "CV/cv-details-fr.html";
 
         document.getElementById("portfolio_tcsmp_link").href = "projects/tcsmp/tcsmp-details-fr.html";
+        document.getElementById("portfolio_tcsmp_link_external").href = "projects/tcsmp/tcsmp-details-fr.html";
         document.getElementById("portfolio_othello_link").href = "projects/othello/othello-details-fr.html";
+        document.getElementById("portfolio_othello_link_external").href = "projects/othello/othello-details-fr.html";
         document.getElementById("portfolio_sic_link").href = "projects/sic/sic-details-fr.html";
+        document.getElementById("portfolio_sic_link_external").href = "projects/sic/sic-details-fr.html";
         document.getElementById("portfolio_verger_link").href = "projects/verger/verger-details-fr.html";
+        document.getElementById("portfolio_verger_link_external").href = "projects/verger/verger-details-fr.html";
         document.getElementById("portfolio_sch_link").href = "projects/sch/sch-details-fr.html";
+        document.getElementById("portfolio_sch_link_external").href = "projects/sch/sch-details-fr.html";
         document.getElementById("portfolio_ctvb_link").href = "projects/ctvb/ctvb-details-fr.html";
+        document.getElementById("portfolio_ctvb_link_external").href = "projects/ctvb/ctvb-details-fr.html";
         document.getElementById("portfolio_transport_link").href = "projects/transport/transport-details-fr.html";
+        document.getElementById("portfolio_transport_link_external").href = "projects/transport/transport-details-fr.html";
     }
 
     /**
@@ -266,6 +273,10 @@
         selector: '.portfolio-details-lightbox',
         width: '90%',
         height: '90vh'
+    });
+    portfolioDetailsLightbox.on('open', () => {
+        // var i = portfolioDetailsLightbox.getActiveSlideIndex();
+        // portfolioDetailsLightbox.goToSlide(i);
     });
 
     /**
