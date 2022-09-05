@@ -277,6 +277,7 @@
     portfolioDetailsLightbox.on('open', () => {
         // var i = portfolioDetailsLightbox.getActiveSlideIndex();
         // portfolioDetailsLightbox.goToSlide(i);
+        // document.getElementById("github_gist").style.display = "none";
     });
 
     /**
