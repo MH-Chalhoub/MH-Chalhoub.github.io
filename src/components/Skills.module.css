@@ -1,0 +1,53 @@
+.section {
+  padding-block: var(--space-3xl);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.card {
+  height: 100%;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.cardDesc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-elevated);
+  color: var(--color-text);
+}

@@ -1,0 +1,145 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 12vw, 7rem);
+  color: var(--color-hero-fg);
+  background: linear-gradient(
+    160deg,
+    var(--color-hero-start) 0%,
+    var(--color-hero-mid) 45%,
+    var(--color-hero-end) 100%
+  );
+}
+
+.grid {
+  pointer-events: none;
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--color-hero-fg) 12%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-hero-fg) 12%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
+  opacity: 0.5;
+  animation: drift 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid {
+    animation: none;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-48px, -48px, 0);
+  }
+}
+
+.orbit {
+  pointer-events: none;
+  position: absolute;
+  width: min(42rem, 90vw);
+  height: min(42rem, 90vw);
+  right: -18%;
+  top: -25%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in srgb, var(--color-accent) 45%, transparent),
+    transparent 62%
+  );
+  filter: blur(4px);
+  opacity: 0.55;
+}
+
+.orbit[data-static='true'] {
+  opacity: 0.45;
+}
+
+.content {
+  position: relative;
+  max-width: 40rem;
+}
+
+.tagline {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-hero-fg) 72%, transparent);
+  margin-bottom: var(--space-md);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 3.35rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: var(--space-lg);
+}
+
+.subhead {
+  font-size: clamp(1.0625rem, 2.2vw, 1.2rem);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--color-hero-fg) 82%, transparent);
+  margin-bottom: var(--space-xl);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btnPrimary {
+  color: var(--color-hero-end);
+  background: var(--color-hero-fg);
+  box-shadow: 0 12px 40px color-mix(in srgb, black 35%, transparent);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 48px color-mix(in srgb, black 40%, transparent);
+  text-decoration: none;
+}
+
+.btnGhost {
+  color: var(--color-hero-fg);
+  border: 1px solid color-mix(in srgb, var(--color-hero-fg) 45%, transparent);
+  background: color-mix(in srgb, var(--color-hero-fg) 6%, transparent);
+}
+
+.btnGhost:hover {
+  background: color-mix(in srgb, var(--color-hero-fg) 12%, transparent);
+  text-decoration: none;
+}

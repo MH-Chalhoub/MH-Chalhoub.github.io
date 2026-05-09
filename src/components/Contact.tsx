@@ -1,127 +1,95 @@
-export default function Contact() {
+import type { SocialLink } from '../content/types'
+import { Container } from './layout/Container'
+import { FadeUp } from './ui/FadeUp'
+import styles from './Contact.module.css'
+
+function Icon({ kind }: { kind: SocialLink['kind'] }) {
+  const strokeIcon = { width: 20, height: 20, fill: 'none', stroke: 'currentColor' as const }
+  switch (kind) {
+    case 'email':
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden {...strokeIcon} strokeWidth="1.75">
+          <path d="M4 6h16v12H4z" />
+          <path d="M4 7l8 6 8-6" />
+        </svg>
+      )
+    case 'github':
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden width={20} height={20} fill="currentColor">
+          <path d="M12 .5C5.65.5.5 5.65.5 12a11.79 11.79 0 0 0 8.19 11.2c.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.85 1.24 1.85 1.24 1.08 1.85 2.82 1.32 3.5 1 .1-.79.42-1.32.76-1.62-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.52 11.52 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.2v3.26c0 .32.21.69.83.57A11.79 11.79 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+        </svg>
+      )
+    case 'linkedin':
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden {...strokeIcon} strokeWidth="1.75">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+          <path d="M2 9h4v12H2z" />
+          <path d="M4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
+        </svg>
+      )
+    case 'phone':
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden
+          {...strokeIcon}
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.72-1.11a2 2 0 0 1 2.12-.45c.76.24 1.55.42 2.36.54A2 2 0 0 1 22 16.92z" />
+        </svg>
+      )
+  }
+}
+
+type ContactProps = {
+  id?: string
+  title: string
+  blurb: string
+  location?: string
+  links: readonly SocialLink[]
+}
+
+export function Contact({ id = 'contact', title, blurb, location, links }: ContactProps) {
   return (
-    <section className="py-20 bg-geoai-primary">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-4">Get In Touch</h2>
-          <p className="text-xl text-geoai-secondary max-w-2xl mx-auto">
-            Let's discuss how GeoAI can solve your environmental and urban challenges
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-geoai-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xl">📧</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Email</h3>
-                <p className="text-geoai-secondary hover:text-white cursor-pointer transition-colors">
-                  hello@geoai-engineer.com
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-geoai-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xl">💼</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">LinkedIn</h3>
-                <p className="text-geoai-secondary hover:text-white cursor-pointer transition-colors">
-                  linkedin.com/in/geoai-engineer
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-geoai-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xl">🐙</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">GitHub</h3>
-                <p className="text-geoai-secondary hover:text-white cursor-pointer transition-colors">
-                  github.com/geoai-engineer
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-geoai-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xl">📍</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Location</h3>
-                <p className="text-geoai-secondary">San Francisco, CA, USA</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <form className="space-y-4">
-            <div>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full px-4 py-3 bg-geoai-surface text-geoai-neutral placeholder-geoai-neutral/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-geoai-accent"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full px-4 py-3 bg-geoai-surface text-geoai-neutral placeholder-geoai-neutral/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-geoai-accent"
-              />
-            </div>
-            <div>
-              <textarea
-                placeholder="Your Message"
-                rows={4}
-                className="w-full px-4 py-3 bg-geoai-surface text-geoai-neutral placeholder-geoai-neutral/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-geoai-accent resize-none"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full py-3 bg-geoai-accent text-white font-semibold rounded-lg hover:bg-geoai-accent/90 transition-all shadow-lg"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-
-        {/* Social Links */}
-        <div className="mt-16 pt-16 border-t border-geoai-primary/30">
-          <div className="flex justify-center gap-6 mb-8">
-            {[
-              { icon: '🐦', label: 'Twitter' },
-              { icon: '💬', label: 'Discord' },
-              { icon: '🔗', label: 'Blog' },
-              { icon: '📰', label: 'Medium' },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href="#"
-                className="w-12 h-12 bg-geoai-surface rounded-full flex items-center justify-center text-white hover:bg-geoai-accent transition-all text-lg"
-                title={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-
-          {/* Footer */}
-          <div className="text-center pt-8 border-t border-geoai-primary/30">
-            <p className="text-geoai-secondary mb-2">
-              © 2024 GeoAI Engineer. All rights reserved.
+    <section className={styles.section} id={id} aria-labelledby="contact-heading">
+      <Container className={styles.inner}>
+        <FadeUp>
+          <h2 id="contact-heading" className={styles.title}>
+            {title}
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.06}>
+          <p className={styles.blurb}>{blurb}</p>
+        </FadeUp>
+        {location ? (
+          <FadeUp delay={0.08}>
+            <p className={styles.location}>
+              <span className={styles.locationLabel}>Location</span>
+              {location}
             </p>
-            <p className="text-geoai-secondary/70 text-sm">
-              Built with React, TypeScript, Tailwind CSS & 💚 for a sustainable future
-            </p>
-          </div>
-        </div>
-      </div>
+          </FadeUp>
+        ) : null}
+
+        <ul className={styles.links}>
+          {links.map((link, i) => (
+            <li key={link.href + link.label}>
+              <FadeUp delay={0.1 + i * 0.06}>
+                <a className={styles.card} href={link.href}>
+                  <span className={styles.icon}>
+                    <Icon kind={link.kind} />
+                  </span>
+                  <span className={styles.label}>{link.label}</span>
+                  <span className={styles.chev} aria-hidden>
+                    →
+                  </span>
+                </a>
+              </FadeUp>
+            </li>
+          ))}
+        </ul>
+      </Container>
     </section>
   )
 }

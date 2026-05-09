@@ -1,0 +1,114 @@
+.section {
+  padding-block: var(--space-3xl);
+  background: var(--color-bg);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+}
+
+.item {
+  height: 100%;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  color: var(--color-accent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+}
+
+.summary {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.tags {
+  list-style: none;
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tags li {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.placeholder {
+  margin-top: auto;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  font-style: italic;
+}

@@ -1,0 +1,73 @@
+.section {
+  padding-block: var(--space-3xl);
+  background: var(--color-bg);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.para {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
+
+.aside {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.asideTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.focusList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.focusItem {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 22%, transparent);
+}

@@ -1,54 +1,120 @@
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', var(--font-sans);
+
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-elevated: #f0f2f8;
+  --color-text: #0f172a;
+  --color-muted: #475569;
+  --color-border: #e2e8f0;
+
+  --color-accent: #6366f1;
+  --color-accent-2: #22d3ee;
+
+  --color-hero-start: #0b1224;
+  --color-hero-mid: #111b33;
+  --color-hero-end: #1e1b4b;
+  --color-hero-fg: #f8fafc;
+
+  --color-footer: #070b14;
+
+  --max-width: 72rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: clamp(3.5rem, 8vw, 5rem);
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--color-text) 6%, transparent);
+  --shadow-md: 0 12px 40px color-mix(in srgb, var(--color-text) 10%, transparent);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 35%, transparent),
+    0 14px 50px color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #1e3a8a;
-  --secondary-color: #059669;
-  --accent-color: #7c3aed;
-  --text-color: #374151;
-  --text-light: #9ca3af;
-  --bg-color: #f9fafb;
-  --surface-color: #ffffff;
-  --border-color: #e5e7eb;
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 html,
 body,
 #root {
-  width: 100%;
   height: 100%;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  color: inherit;
 }
 
 button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font: inherit;
 }
 
-button:hover {
-  opacity: 0.9;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: var(--space-md);
+  z-index: 1000;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-hero-fg);
+  color: var(--color-hero-end);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }

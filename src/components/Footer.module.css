@@ -1,0 +1,40 @@
+.footer {
+  padding-block: var(--space-xl);
+  background: var(--color-footer);
+  color: color-mix(in srgb, white 72%, transparent);
+  border-top: 1px solid color-mix(in srgb, white 12%, transparent);
+}
+
+.inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.quote p {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: color-mix(in srgb, white 88%, transparent);
+}
+
+.quote cite {
+  font-size: 0.8125rem;
+  font-style: normal;
+  color: color-mix(in srgb, white 58%, transparent);
+}
+
+.text {
+  margin: 0;
+  font-size: 0.875rem;
+}
