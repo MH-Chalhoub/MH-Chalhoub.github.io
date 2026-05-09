@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { SynthwaveFloor } from './effects/SynthwaveFloor'
 import { Container } from './layout/Container'
 import styles from './Hero.module.css'
 
@@ -23,8 +24,7 @@ export function Hero({
 
   return (
     <section className={styles.section} id={id} aria-labelledby="hero-heading">
-      <div className={styles.grid} aria-hidden />
-      <div className={styles.orbit} aria-hidden data-static={reduce} />
+      <SynthwaveFloor />
 
       <Container className={styles.content}>
         <motion.p

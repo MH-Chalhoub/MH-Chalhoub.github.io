@@ -1,0 +1,353 @@
+/**
+ * Ported concepts from the CodePen synthwave scene (grid scroll, sun stack, mountains,
+ * startails, noise, stars script). DeLorean + palm CSS are separate pens — not inlined.
+ * Audio license: https://assets.codepen.io/907471/synthesizer-synthwave-80s-110045-license.txt
+ */
+
+.scene {
+  --base-speed: 4s;
+  --sw-grid: #fac4ff;
+  --sw-grid-glow: #df7373;
+  --sw-sun-1: #fdb428;
+  --sw-sun-2: #f672ca;
+  --sw-sun-glow: #b9f;
+  --sw-star: #f6c0c0;
+  --sw-volume: #6eccee;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  color: var(--sw-volume);
+  pointer-events: none;
+}
+
+.scene.reduced {
+  --base-speed: 9999s;
+}
+
+.scene.reduced .bottomGrid {
+  animation: none;
+}
+
+.scene.reduced .sun::after {
+  animation: none;
+}
+
+.decor {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 88% 52% at 50% -10%, color-mix(in srgb, #a78bfa 18%, transparent), transparent 50%),
+    radial-gradient(ellipse 70% 42% at 88% 22%, color-mix(in srgb, #f472b6 12%, transparent), transparent 48%),
+    linear-gradient(180deg, #111 0%, #0b0612 35%, #12081f 68%, #0a0510 100%);
+}
+
+.column {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top band: mountains, sun, shooting streaks --- */
+.top {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 2rem;
+  position: relative;
+}
+
+.top::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5vmin;
+  left: 0;
+  right: 0;
+  height: 5vmin;
+  z-index: 2;
+  background: #222;
+  clip-path: polygon(
+    0% 38%,
+    2.6% 40%,
+    5.4% 24%,
+    8.7% 59%,
+    13.6% 72%,
+    18.5% 22%,
+    21.7% 35%,
+    27.2% 8%,
+    34% 53%,
+    39.4% 81%,
+    49.1% 85%,
+    54.5% 64%,
+    60% 53%,
+    71.4% 80%,
+    73.4% 15%,
+    79.8% 29%,
+    86.5% 15%,
+    94.1% 36%,
+    100% 27%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+.top::before {
+  content: '';
+  position: absolute;
+  bottom: -1vmin;
+  left: 0;
+  right: 0;
+  height: 15vmin;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.2);
+  mix-blend-mode: soft-light;
+  backdrop-filter: blur(20px);
+  clip-path: polygon(
+    0% 38%,
+    2.6% 40%,
+    5.4% 24%,
+    8.7% 59%,
+    13.6% 72%,
+    18.5% 22%,
+    21.7% 35%,
+    27.2% 8%,
+    34% 53%,
+    39.4% 81%,
+    49.1% 85%,
+    54.5% 64%,
+    60% 53%,
+    71.2% 70%,
+    76.6% 24%,
+    81.4% 0%,
+    87.1% 13%,
+    94.2% 27%,
+    100% 32%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+.topLines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--sw-sun-2) 0.2vmin, transparent 0.2vmin);
+  background-size: 125rem 0.4vmin;
+  mix-blend-mode: overlay;
+  opacity: 0.06;
+}
+
+.startails {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+.startailR {
+  position: absolute;
+  left: 75vw;
+  bottom: 0;
+  height: 0.2vmin;
+  width: 15vmin;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px white);
+  transform: translateY(-32vmin) rotate(-20deg);
+  background: linear-gradient(
+    to right,
+    var(--sw-sun-glow) 10%,
+    var(--sw-volume) 50%,
+    transparent 80%
+  );
+}
+
+.startailL {
+  position: absolute;
+  left: 16vw;
+  bottom: 0;
+  height: 0.2vmin;
+  width: 17vmin;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px white);
+  transform: translateY(-7vmin) rotate(-20deg);
+  background: linear-gradient(
+    to right,
+    var(--sw-sun-glow) 10%,
+    var(--sw-volume) 30%,
+    transparent 60%
+  );
+}
+
+.startailM {
+  position: absolute;
+  left: 18vw;
+  bottom: 0;
+  height: 0.2vmin;
+  width: 14vmin;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 15px white);
+  transform: translateY(-18vmin) rotate(-20deg);
+  background: linear-gradient(
+    to right,
+    var(--sw-sun-glow) 10%,
+    var(--sw-volume) 50%,
+    transparent 80%
+  );
+}
+
+.sunWrap {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  width: min(40vmin, 42%);
+  margin-bottom: -2vmin;
+}
+
+.sun {
+  position: relative;
+  width: min(40vmin, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 4rem var(--sw-sun-glow));
+}
+
+.sun::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(to bottom, var(--sw-sun-1), var(--sw-sun-2) 60%);
+  mask-image: repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 5px);
+  mask-size: 100% 200%;
+  animation: sunStripe calc(var(--base-speed) / 4) linear infinite;
+}
+
+.sun::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    to top,
+    var(--sw-sun-1),
+    var(--sw-sun-2) 55%,
+    var(--sw-volume) 65%,
+    var(--sw-sun-2) 69%
+  );
+  transform: translateY(100%) rotateX(40deg) scaleY(1.2);
+  filter: blur(20px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun::after {
+    animation: none;
+  }
+}
+
+@keyframes sunStripe {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 0 48px;
+  }
+}
+
+/* --- Bottom: perspective grid (CodePen-style) --- */
+.bottom {
+  flex: 0 0 clamp(10rem, 22vmin, 14rem);
+  position: relative;
+  z-index: 2;
+  perspective: 14.5rem;
+}
+
+.bottomGrid {
+  position: absolute;
+  inset: 0;
+  --line-width: 0.0635rem;
+  background: linear-gradient(
+      to right,
+      var(--sw-grid) var(--line-width),
+      transparent var(--line-width)
+    ),
+    linear-gradient(to bottom, var(--sw-grid) var(--line-width), transparent var(--line-width));
+  background-size: 2rem 125rem, 125rem 2rem;
+  transform: rotateX(53deg) scale(1.8) translateZ(43px);
+  transform-origin: center top;
+  border-top: 1px solid var(--sw-grid);
+  filter: drop-shadow(0 0 2px var(--sw-grid-glow));
+  animation: gridScrollY var(--base-speed) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottomGrid {
+    animation: none;
+    transform: rotateX(53deg) scale(1.8) translateZ(43px);
+    background-position-y: 0;
+  }
+}
+
+@keyframes gridScrollY {
+  from {
+    background-position-y: -30rem;
+  }
+  to {
+    background-position-y: 0%;
+  }
+}
+
+.bottomOverlay {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(30, 30, 30, 0.9) 70%);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  filter: invert(1);
+  background: url(https://assets.codepen.io/907471/noise.svg);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  background: linear-gradient(to top, color-mix(in srgb, #020105 60%, transparent) 0%, transparent 42%);
+}

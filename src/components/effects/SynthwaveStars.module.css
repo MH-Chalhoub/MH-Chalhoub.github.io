@@ -1,0 +1,45 @@
+.host {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: clamp(9rem, 24vh, 16rem);
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  animation: starsDrift 22s linear infinite;
+}
+
+.hostStopped {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .host {
+    animation: none;
+  }
+}
+
+@keyframes starsDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  60% {
+    transform: translate3d(2vmax, 0, 0) rotate(0.8deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.star {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.15rem;
+  height: 0.15rem;
+  border-radius: 50%;
+  background: var(--sw-star, #f6c0c0);
+  transform: translate3d(var(--x, 0px), var(--y, 0px), 0);
+  box-shadow: 0 0 0.25rem var(--sw-sun-glow, #b9f);
+}

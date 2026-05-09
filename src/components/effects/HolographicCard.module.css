@@ -1,0 +1,118 @@
+@property --holo-rx {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --holo-ry {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.root {
+  height: 100%;
+  perspective: 1100px;
+  perspective-origin: 50% 50%;
+}
+
+.tilt {
+  --holo-rx: 0;
+  --holo-ry: 0;
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  transform: rotateY(calc(-1deg * var(--holo-rx) * 14))
+    rotateX(calc(1deg * var(--holo-ry) * 11));
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tilt:hover,
+.tilt:focus-within {
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--color-accent) 32%, var(--color-border));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt {
+    transform: none;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+}
+
+/* Iridescent foil */
+.sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: -40%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 120deg at 50% 50%,
+    color-mix(in srgb, #22d3ee 35%, transparent),
+    color-mix(in srgb, #a78bfa 40%, transparent),
+    color-mix(in srgb, #f472b6 35%, transparent),
+    color-mix(in srgb, #34d399 30%, transparent),
+    color-mix(in srgb, #22d3ee 35%, transparent)
+  );
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+  transform: translateZ(1px) rotate(calc(8deg + var(--holo-rx) * 18deg));
+  transition: opacity 0.25s ease;
+}
+
+/* Moving highlight beam */
+.beam {
+  pointer-events: none;
+  position: absolute;
+  inset: -20%;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    color-mix(in srgb, white 55%, transparent) 48%,
+    color-mix(in srgb, #c4b5fd 45%, transparent) 52%,
+    transparent 62%
+  );
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  transform: translateZ(2px)
+    translate(calc(var(--holo-rx) * -18px), calc(var(--holo-ry) * -14px));
+  transition: opacity 0.2s ease;
+}
+
+.rim {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 35%, transparent);
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheen {
+    transform: translateZ(1px);
+    opacity: 0.14;
+  }
+
+  .beam {
+    transform: translateZ(2px);
+    opacity: 0.2;
+  }
+}

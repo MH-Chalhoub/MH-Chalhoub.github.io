@@ -3,72 +3,13 @@
   overflow: hidden;
   padding-block: clamp(4rem, 12vw, 7rem);
   color: var(--color-hero-fg);
-  background: linear-gradient(
-    160deg,
-    var(--color-hero-start) 0%,
-    var(--color-hero-mid) 45%,
-    var(--color-hero-end) 100%
-  );
-}
-
-.grid {
-  pointer-events: none;
-  position: absolute;
-  inset: -20%;
-  background-image:
-    linear-gradient(
-      color-mix(in srgb, var(--color-hero-fg) 12%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-hero-fg) 12%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
-  opacity: 0.5;
-  animation: drift 28s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .grid {
-    animation: none;
-  }
-}
-
-@keyframes drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-48px, -48px, 0);
-  }
-}
-
-.orbit {
-  pointer-events: none;
-  position: absolute;
-  width: min(42rem, 90vw);
-  height: min(42rem, 90vw);
-  right: -18%;
-  top: -25%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    color-mix(in srgb, var(--color-accent) 45%, transparent),
-    transparent 62%
-  );
-  filter: blur(4px);
-  opacity: 0.55;
-}
-
-.orbit[data-static='true'] {
-  opacity: 0.45;
+  /* Fallback base; full sky is painted by SynthwaveFloor for one cohesive look */
+  background: #040109;
 }
 
 .content {
   position: relative;
+  z-index: 1;
   max-width: 40rem;
 }
 
