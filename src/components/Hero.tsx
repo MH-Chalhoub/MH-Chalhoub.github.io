@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { SynthwaveAudio } from './effects/SynthwaveAudio'
 import { SynthwaveFloor } from './effects/SynthwaveFloor'
 import { Container } from './layout/Container'
 import styles from './Hero.module.css'
@@ -69,6 +70,11 @@ export function Hero({
           </a>
         </motion.div>
       </Container>
+
+      {/* Above .content (z-index 1); must not live inside .scene (z-index 0) or it paints underneath */}
+      <div className={styles.audioLayer}>
+        <SynthwaveAudio />
+      </div>
     </section>
   )
 }

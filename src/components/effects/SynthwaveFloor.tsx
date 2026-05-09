@@ -1,12 +1,11 @@
 import { useReducedMotion } from 'framer-motion'
-import { SynthwaveAudio } from './SynthwaveAudio'
 import { SynthwaveStars } from './SynthwaveStars'
 import styles from './SynthwaveFloor.module.css'
 
 /**
  * Scene inspired by the CodePen “synthwave 80s” structure: `.scene` → `.top` / `.bottom`,
  * infinite grid (`background-position-y`), procedural `#stars`, optional licensed audio.
- * Full DeLorean / palm markup lives in linked pens — not bundled here (see comments in CSS).
+ * Audio control is rendered in `Hero` above `.content` so it is not trapped under z-index stacking.
  */
 export function SynthwaveFloor() {
   const reduceMotion = useReducedMotion()
@@ -38,8 +37,6 @@ export function SynthwaveFloor() {
         <div className={styles.noise} />
         <div className={styles.vignette} />
       </div>
-
-      <SynthwaveAudio />
     </div>
   )
 }

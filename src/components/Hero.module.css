@@ -13,6 +13,14 @@
   max-width: 40rem;
 }
 
+/* Interactive chrome above hero copy; sibling of .content so z-index beats the synthwave .scene */
+.audioLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
 .tagline {
   font-size: 0.8125rem;
   font-weight: 600;
