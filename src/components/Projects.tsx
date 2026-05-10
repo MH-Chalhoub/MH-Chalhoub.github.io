@@ -1,5 +1,4 @@
 import type { Project } from '../content/types'
-import { HolographicCard } from './effects/HolographicCard'
 import { Container } from './layout/Container'
 import { SectionHeader } from './layout/SectionHeader'
 import { FadeUp } from './ui/FadeUp'
@@ -32,30 +31,28 @@ export function Projects({
           {projects.map((project, i) => (
             <li key={project.title} className={styles.item}>
               <FadeUp delay={i * 0.09}>
-                <HolographicCard className={styles.cardInner}>
-                  <article className={styles.article}>
-                    <div className={styles.cardTop}>
-                      <h3 className={styles.cardTitle}>{project.title}</h3>
-                      <span className={styles.badge} aria-hidden>
-                        GeoAI
-                      </span>
-                    </div>
-                    <p className={styles.summary}>{project.summary}</p>
-                    <ul className={styles.tags}>
-                      {project.tags.map((t) => (
-                        <li key={t}>{t}</li>
-                      ))}
-                    </ul>
-                    {project.href ? (
-                      <a className={styles.link} href={project.href}>
-                        View details
-                        <span aria-hidden> →</span>
-                      </a>
-                    ) : (
-                      <p className={styles.placeholder}>Details coming soon</p>
-                    )}
-                  </article>
-                </HolographicCard>
+                <article className={styles.card}>
+                  <div className={styles.cardTop}>
+                    <h3 className={styles.cardTitle}>{project.title}</h3>
+                    <span className={styles.badge} aria-hidden>
+                      GeoAI
+                    </span>
+                  </div>
+                  <p className={styles.summary}>{project.summary}</p>
+                  <ul className={styles.tags}>
+                    {project.tags.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                  {project.href ? (
+                    <a className={styles.link} href={project.href}>
+                      View details
+                      <span aria-hidden> →</span>
+                    </a>
+                  ) : (
+                    <p className={styles.placeholder}>Details coming soon</p>
+                  )}
+                </article>
               </FadeUp>
             </li>
           ))}
