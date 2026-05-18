@@ -22,6 +22,8 @@ export default function App() {
           tagline={site.tagline}
           primaryCta={site.hero.primaryCta}
           secondaryCta={site.hero.secondaryCta}
+          portraitSrc="/portrait.png"
+          portraitAlt={site.name}
         />
         <Stats items={site.stats} />
         <About

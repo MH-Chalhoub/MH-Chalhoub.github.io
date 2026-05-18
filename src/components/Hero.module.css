@@ -70,7 +70,128 @@
 .content {
   position: relative;
   z-index: 1;
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+    gap: var(--space-3xl);
+  }
+
+  .portraitShell {
+    justify-self: end;
+  }
+}
+
+.text {
   max-width: 40rem;
+}
+
+.portraitShell {
+  perspective: 1100px;
+  max-width: min(280px, 72vw);
+  justify-self: center;
+}
+
+@media (min-width: 900px) {
+  .portraitShell {
+    max-width: 100%;
+  }
+}
+
+.portrait {
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  transform-style: preserve-3d;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-hero-fg) 52%, transparent),
+    color-mix(in srgb, var(--color-accent) 58%, transparent),
+    color-mix(in srgb, var(--color-accent-2) 48%, transparent),
+    color-mix(in srgb, var(--color-hero-fg) 28%, transparent)
+  );
+  box-shadow:
+    0 4px 20px color-mix(in srgb, black 28%, transparent),
+    0 26px 56px color-mix(in srgb, black 46%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-hero-fg) 14%, transparent);
+  transition: box-shadow 0.35s ease;
+}
+
+@media (hover: hover) {
+  .portrait:hover {
+    box-shadow:
+      0 8px 28px color-mix(in srgb, black 32%, transparent),
+      0 36px 72px color-mix(in srgb, black 52%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--color-hero-fg) 22%, transparent);
+  }
+}
+
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 38%,
+    color-mix(in srgb, var(--color-hero-fg) 22%, transparent) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: soft-light;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .portrait:hover::after {
+    opacity: 0.85;
+    animation: portraitSheen 3.2s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait::after {
+    display: none;
+  }
+}
+
+@keyframes portraitSheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.portraitInner {
+  border-radius: calc(var(--radius-lg) - 2px);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-hero-end) 35%, black);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-hero-fg) 18%, transparent);
+}
+
+.portraitImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
 }
 
 .tagline {
