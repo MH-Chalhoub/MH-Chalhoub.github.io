@@ -1,6 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { Suspense, lazy, useEffect, useRef } from 'react'
 import { site } from '../content/site'
 import styles from './CvModal.module.css'
+
+const CvPdfViewer = lazy(() =>
+  import('./CvPdfViewer').then((module) => ({ default: module.CvPdfViewer })),
+)
 
 type CvModalProps = {
   open: boolean
@@ -35,7 +39,6 @@ function ExternalIcon() {
 export function CvModal({ open, onClose }: CvModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const { href, fileName } = site.cv
-  const previewSrc = `${href}#toolbar=0&navpanes=0&view=FitH`
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -80,7 +83,6 @@ export function CvModal({ open, onClose }: CvModalProps) {
             <h2 id="cv-modal-title" className={styles.title}>
               {site.name}
             </h2>
-            <p className={styles.subtitle}>{site.role}</p>
           </div>
 
           <div className={styles.headerActions}>
@@ -100,14 +102,11 @@ export function CvModal({ open, onClose }: CvModalProps) {
         </header>
 
         <div className={styles.viewer}>
-          <div className={styles.paperChrome}>
-            <div className={styles.paperGlow} aria-hidden />
-            <iframe
-              className={styles.frame}
-              src={previewSrc}
-              title={`${site.name} CV preview`}
-            />
-          </div>
+          {open ? (
+            <Suspense fallback={<p className={styles.pdfStatus}>Loading resume…</p>}>
+              <CvPdfViewer url={href} />
+            </Suspense>
+          ) : null}
         </div>
 
         <footer className={styles.footer}>
