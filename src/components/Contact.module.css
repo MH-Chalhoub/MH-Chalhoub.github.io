@@ -79,6 +79,13 @@
   text-decoration: none;
 }
 
+button.card {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .icon {
   display: inline-flex;
   width: 2.5rem;

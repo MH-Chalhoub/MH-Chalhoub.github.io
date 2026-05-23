@@ -26,7 +26,7 @@
       transparent 1px
     );
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 95% 80% at 42% 40%, black 18%, transparent 78%);
   opacity: 0.5;
   animation: drift 28s linear infinite;
 }
@@ -80,12 +80,14 @@
 
 @media (min-width: 900px) {
   .layout {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
     gap: var(--space-3xl);
   }
 
   .portraitShell {
     justify-self: end;
+    width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -95,22 +97,17 @@
 
 .portraitShell {
   perspective: 1100px;
-  max-width: min(280px, 72vw);
+  width: min(360px, 92vw);
+  max-width: 100%;
   justify-self: center;
-}
-
-@media (min-width: 900px) {
-  .portraitShell {
-    max-width: 100%;
-  }
 }
 
 .portrait {
   margin: 0;
   position: relative;
+  width: 100%;
   border-radius: var(--radius-lg);
   padding: 2px;
-  transform-style: preserve-3d;
   background: linear-gradient(
     145deg,
     color-mix(in srgb, var(--color-hero-fg) 52%, transparent),
@@ -179,11 +176,59 @@
   }
 }
 
+.portraitTilt {
+  transform-style: preserve-3d;
+  border-radius: calc(var(--radius-lg) - 2px);
+}
+
 .portraitInner {
+  position: relative;
   border-radius: calc(var(--radius-lg) - 2px);
   overflow: hidden;
   background: color-mix(in srgb, var(--color-hero-end) 35%, black);
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-hero-fg) 18%, transparent);
+}
+
+.portrait[data-mode='3d']::after {
+  display: none;
+}
+
+.portraitModeBtn {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 3;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--color-hero-fg) 42%, transparent);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-hero-fg);
+  background: color-mix(in srgb, var(--color-hero-end) 72%, black);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.portraitModeBtn:hover {
+  background: color-mix(in srgb, var(--color-hero-end) 55%, black);
+  border-color: color-mix(in srgb, var(--color-hero-fg) 65%, transparent);
+  transform: translateY(-1px);
+}
+
+.portraitModeBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.portraitModeBtn[aria-pressed='true'] {
+  color: var(--color-hero-end);
+  background: var(--color-hero-fg);
+  border-color: transparent;
 }
 
 .portraitImg {
@@ -192,6 +237,263 @@
   height: auto;
   object-fit: cover;
   aspect-ratio: 4 / 5;
+}
+
+.portraitDepth {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  min-height: 280px;
+  overflow: hidden;
+  background: #0a1220;
+}
+
+.portraitLayerBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 115%;
+  height: 115%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+  transform-origin: center center;
+  z-index: 0;
+}
+
+.portraitStars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.portraitStar {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 6px 1px rgba(255, 255, 255, 0.85),
+    0 0 12px 2px rgba(160, 210, 255, 0.45);
+  transform: translate(-50%, -50%);
+  animation: portraitStarShine 2.8s ease-in-out infinite;
+}
+
+@keyframes portraitStarShine {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Meteor: rotate to aim, then slide on local X (see Geminid / classic tail+shoot pattern). */
+.portraitMeteor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  will-change: transform;
+  animation: portraitMeteorMove var(--meteor-duration, 12s) var(--meteor-delay, 0s) infinite
+    linear both;
+}
+
+.portraitMeteorTrail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 64px;
+  height: 2px;
+  border-radius: 100% 40% 40% 100%;
+  transform-origin: right center;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0.92) 72%,
+    #fff 100%
+  );
+  filter: blur(0.4px);
+  box-shadow: 0 0 8px 1px rgba(190, 220, 255, 0.45);
+  animation: portraitMeteorTail var(--meteor-duration, 12s) var(--meteor-delay, 0s) infinite
+    linear both;
+}
+
+@keyframes portraitMeteorMove {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--meteor-angle, 38deg)) translateX(0);
+  }
+  2% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 0;
+    transform: rotate(var(--meteor-angle, 38deg)) translateX(var(--meteor-travel, 180px));
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--meteor-angle, 38deg)) translateX(var(--meteor-travel, 180px));
+  }
+}
+
+@keyframes portraitMeteorTail {
+  0%,
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  2%,
+  7% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  9% {
+    transform: scaleX(0.15);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitStar {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  .portraitMeteor {
+    display: none;
+  }
+}
+
+.portraitLayerFg {
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  width: auto;
+  height: 135%;
+  max-width: 128%;
+  margin: 0;
+  object-fit: contain;
+  object-position: center bottom;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+  transform-origin: center bottom;
+  z-index: 1;
+  opacity: 1;
+  isolation: isolate;
+}
+
+.portraitMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.portraitLoader {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: color-mix(in srgb, var(--color-hero-end) 88%, black);
+}
+
+.portraitLoaderSpinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid color-mix(in srgb, var(--color-hero-fg) 22%, transparent);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: portraitSpin 0.85s linear infinite;
+}
+
+.portraitLoaderPercent {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-hero-fg);
+  line-height: 1;
+}
+
+.portraitLoaderText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-hero-fg) 75%, transparent);
+}
+
+.portraitLoaderTrack {
+  width: min(72%, 10rem);
+  height: 3px;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-hero-fg) 16%, transparent);
+  overflow: hidden;
+}
+
+.portraitLoaderBar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    color-mix(in srgb, var(--color-accent-2) 85%, var(--color-accent))
+  );
+  transition: width 0.2s ease;
+}
+
+@keyframes portraitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitLoaderSpinner {
+    animation: none;
+    border-top-color: color-mix(in srgb, var(--color-hero-fg) 55%, transparent);
+  }
+}
+
+.portraitCanvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  touch-action: none;
+  cursor: grab;
+}
+
+.portraitCanvas[data-ready='true'] {
+  opacity: 1;
+}
+
+.portraitCanvas[data-ready='true']:active {
+  cursor: grabbing;
+}
+
+.portraitCanvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .tagline {
@@ -264,4 +566,9 @@
 .btnGhost:hover {
   background: color-mix(in srgb, var(--color-hero-fg) 12%, transparent);
   text-decoration: none;
+}
+
+button.btnGhost {
+  font: inherit;
+  cursor: pointer;
 }

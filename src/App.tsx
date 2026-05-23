@@ -7,10 +7,11 @@ import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import { Stats } from './components/Stats'
 import { site } from './content/site'
+import { CvModalProvider } from './context/CvModalContext'
 
 export default function App() {
   return (
-    <>
+    <CvModalProvider>
       <a className="skip-link" href="#home">
         Skip to content
       </a>
@@ -22,7 +23,9 @@ export default function App() {
           tagline={site.tagline}
           primaryCta={site.hero.primaryCta}
           secondaryCta={site.hero.secondaryCta}
-          portraitSrc="/portrait.png"
+          portraitBgSrc="/portrait-bg.png"
+          portraitFgSrc="/portrait-fg.png"
+          portraitModelSrc="/portrait.glb"
           portraitAlt={site.name}
         />
         <Stats items={site.stats} />
@@ -46,6 +49,6 @@ export default function App() {
         quote={site.footer.quote}
         quoteAttribution={site.footer.quoteAttribution}
       />
-    </>
+    </CvModalProvider>
   )
 }

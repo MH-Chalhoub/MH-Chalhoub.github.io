@@ -1,3 +1,4 @@
+import { useCvModal } from '../context/CvModalContext'
 import type { SocialLink } from '../content/types'
 import { Container } from './layout/Container'
 import { FadeUp } from './ui/FadeUp'
@@ -40,6 +41,13 @@ function Icon({ kind }: { kind: SocialLink['kind'] }) {
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.72-1.11a2 2 0 0 1 2.12-.45c.76.24 1.55.42 2.36.54A2 2 0 0 1 22 16.92z" />
         </svg>
       )
+    case 'cv':
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden {...strokeIcon} strokeWidth="1.75">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <path d="M14 2v6h6M12 18v-6M9 15h6" />
+        </svg>
+      )
   }
 }
 
@@ -52,8 +60,14 @@ type ContactProps = {
 }
 
 export function Contact({ id = 'contact', title, blurb, location, links }: ContactProps) {
+  const { openCv } = useCvModal()
+
   return (
-    <section className={styles.section} id={id} aria-labelledby="contact-heading">
+    <section
+      className={`${styles.section} scrollSurfaceDark`}
+      id={id}
+      aria-labelledby="contact-heading"
+    >
       <Container className={styles.inner}>
         <FadeUp>
           <h2 id="contact-heading" className={styles.title}>
@@ -76,15 +90,27 @@ export function Contact({ id = 'contact', title, blurb, location, links }: Conta
           {links.map((link, i) => (
             <li key={link.href + link.label}>
               <FadeUp delay={0.1 + i * 0.06}>
-                <a className={styles.card} href={link.href}>
-                  <span className={styles.icon}>
-                    <Icon kind={link.kind} />
-                  </span>
-                  <span className={styles.label}>{link.label}</span>
-                  <span className={styles.chev} aria-hidden>
-                    →
-                  </span>
-                </a>
+                {link.kind === 'cv' ? (
+                  <button type="button" className={styles.card} onClick={openCv}>
+                    <span className={styles.icon}>
+                      <Icon kind={link.kind} />
+                    </span>
+                    <span className={styles.label}>{link.label}</span>
+                    <span className={styles.chev} aria-hidden>
+                      →
+                    </span>
+                  </button>
+                ) : (
+                  <a className={styles.card} href={link.href}>
+                    <span className={styles.icon}>
+                      <Icon kind={link.kind} />
+                    </span>
+                    <span className={styles.label}>{link.label}</span>
+                    <span className={styles.chev} aria-hidden>
+                      →
+                    </span>
+                  </a>
+                )}
               </FadeUp>
             </li>
           ))}

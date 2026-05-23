@@ -1,5 +1,8 @@
 import type { NavItem, Project, SkillCategory, SocialLink, Stat } from './types'
 
+const CV_HREF = '/Mohamad_Chalhoub_GIS_CV___EN.pdf'
+const CV_DOWNLOAD_NAME = 'Mohamad-Chalhoub-GIS-CV.pdf'
+
 /**
  * Site copy and data — synced from your live pages at
  * https://mh-chalhoub.github.io/ plus GeoAI roadmap items.
@@ -9,6 +12,12 @@ export const site = {
   name: 'Mohamad Chalhoub',
   role: 'GeoAI Engineer',
   tagline: 'Geospatial systems, machine learning, and maps that scale.',
+
+  cv: {
+    label: 'View CV',
+    href: CV_HREF,
+    fileName: CV_DOWNLOAD_NAME,
+  },
 
   nav: [
     { id: 'home', label: 'Home', href: '#home' },
@@ -23,7 +32,7 @@ export const site = {
     subhead:
       'Computer science graduate (Lebanese University): strong in Java, Android, compilers, and AI — now growing a deliberate GeoAI practice (GIS, imagery, and ML pipelines) alongside full-stack web work.',
     primaryCta: { label: 'View work', href: '#projects' },
-    secondaryCta: { label: 'Contact', href: '#contact' },
+    secondaryCta: { label: 'View CV', action: 'cv' as const },
   },
 
   stats: [
@@ -145,6 +154,11 @@ export const site = {
     /** Shown under the blurb (plain text). */
     location: 'Main Road, Tyre, Lebanon · also Beirut',
     links: [
+      {
+        label: 'View CV',
+        href: CV_HREF,
+        kind: 'cv',
+      },
       {
         label: 'Email',
         href: 'mailto:Mohamad.Chalhoub@st.ul.edu.lb',

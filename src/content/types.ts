@@ -26,5 +26,5 @@ export type Project = {
 export type SocialLink = {
   label: string
   href: string
-  kind: 'email' | 'github' | 'linkedin' | 'phone'
+  kind: 'email' | 'github' | 'linkedin' | 'phone' | 'cv'
 }
