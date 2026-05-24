@@ -30,7 +30,7 @@ export const site = {
   hero: {
     headline: 'Geodata, models, and interfaces for the real world.',
     subhead:
-      'Computer science graduate (Lebanese University): strong in Java, Android, compilers, and AI — now growing a deliberate GeoAI practice (GIS, imagery, and ML pipelines) alongside full-stack web work.',
+      'Computer science graduate (Lebanese University): strong in Java, Android, compilers, and AI — now growing a deliberate GeoAI practice (GIS, imagery, and ML pipelines) alongside fullstack web work.',
     primaryCta: { label: 'View work', href: '#projects' },
     secondaryCta: { label: 'View CV', action: 'cv' as const },
   },
